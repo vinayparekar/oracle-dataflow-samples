@@ -44,7 +44,7 @@ Create a bucket. Alternatively you can re-use an existing bucket.
 
 ```sh
 oci os bucket create --name <bucket> --compartment-id <compartment_ocid>
-oci os object put --bucket-name <bucket> --file csv_to_parquet.py
+oci os object put --bucket-name <bucket> --file csv_to_parquet-1.0-SNAPSHOT.jar
 oci data-flow application create \
     --compartment-id <compartment_ocid> \
     --display-name "CSV to Parquet Java"
@@ -52,9 +52,9 @@ oci data-flow application create \
     --executor-shape VM.Standard2.1 \
     --num-executors 1 \
     --spark-version 2.4.4 \
-    --file-uri oci://<bucket>@<namespace>/csv_to_parquet.py \
+    --file-uri oci://<bucket>@<namespace>/csv_to_parquet-1.0-SNAPSHOT.jar \
     --language Java
-    -class-name example.Example
+    --class-name example.Example
 ```
 
 Make note of the Application ID produced.
